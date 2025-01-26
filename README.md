@@ -12,6 +12,10 @@ Fight the endless swarm of mosquitos to reach their Queen and defeat her!
 
 Save the world from the fright of mosquitos!
 
+# Play now!
+
+https://lewkis.itch.io/bob-bill
+
 # Tech
 GoDot, LogicProX, Aseprite, Photoshop
 
