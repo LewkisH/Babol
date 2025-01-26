@@ -2,9 +2,9 @@ extends Control
 
 # Dialogue data: character names, dialogue lines, and optional images
 var dialogue = [
-	{"name": "Narrator", "text": "ITS ALL OVER", "background": "res://assets/textures/cutscene_end/final1.png"},
-	{"name": "Bob-Bill", "text": "It's time to put an end to their reign!", "background": "res://assets/textures/cutscene_end/final2.png"},
-	{"name": "Narrator", "text": "So he took his crown and cape, and flew into the forest.", "background": "res://assets/textures/cutscene_end/final3.png"},
+	{"name": "Narrator", "text": "THIS IS THE FINAL SHOWDOWN!", "background": "res://assets/textures/cutscene_end/final1.png"},
+	{"name": "Bob-Bill", "text": "Your tyranny ends here, Mosquito Queen!", "background": "res://assets/textures/cutscene_end/final2.png"},
+	{"name": "Narrator", "text": "With one final blow, Bob-Bill vanquished the Mosquito Queen. The forest was free once more.", "background": "res://assets/textures/cutscene_end/final3.png"}
 ]
 
 var current_index = 0  # Keep track of the current dialogue line

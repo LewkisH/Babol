@@ -80,6 +80,7 @@ func _on_timer_timeout() -> void:
 
 func die():
 	Globals._on_bossfight_ended(true)
+	print("end cutscene")
 	queue_free()	
 
 func _on_body_entered(body):
