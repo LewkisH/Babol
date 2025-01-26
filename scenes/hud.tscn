@@ -1,0 +1,145 @@
+[gd_scene load_steps=21 format=3 uid="uid://dniho73boedhe"]
+
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_36kw0"]
+[ext_resource type="FontFile" uid="uid://bhr2rhqo8dmnd" path="res://assets/fonts/Kenney Future.ttf" id="2_byd15"]
+[ext_resource type="Texture2D" uid="uid://dxon4fnmurbu1" path="res://assets/textures/breath_blue.png" id="3_nqfhe"]
+[ext_resource type="Texture2D" uid="uid://ftqjlkuu0cas" path="res://assets/textures/breath_white.png" id="4_hwoq8"]
+[ext_resource type="Texture2D" uid="uid://vby6oshk5ouc" path="res://assets/textures/breathBar.png" id="4_xjp7p"]
+[ext_resource type="Texture2D" uid="uid://cbmu88nf5r1c3" path="res://assets/textures/bigBubbleSheet.png" id="5_f1hap"]
+[ext_resource type="Texture2D" uid="uid://b8p6lyex5td7m" path="res://assets/textures/bubleEffects.png" id="7_tvesa"]
+[ext_resource type="Texture2D" uid="uid://dxxmdogyloe6t" path="res://assets/textures/buttons.png" id="8_pgrcn"]
+[ext_resource type="Texture2D" uid="uid://cn4cov6g3g5kc" path="res://assets/textures/exclamation.png" id="8_rye2h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w76kk"]
+font = ExtResource("2_byd15")
+font_size = 48
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ujro"]
+atlas = ExtResource("5_f1hap")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uoutq"]
+atlas = ExtResource("5_f1hap")
+region = Rect2(320, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0vu1"]
+atlas = ExtResource("5_f1hap")
+region = Rect2(640, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0gcc"]
+atlas = ExtResource("5_f1hap")
+region = Rect2(960, 0, 320, 320)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5xhw2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ujro")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uoutq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0vu1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0gcc")
+}],
+"loop": false,
+"name": &"bubble_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dere2"]
+atlas = ExtResource("7_tvesa")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xyk6s"]
+atlas = ExtResource("7_tvesa")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5a0c"]
+atlas = ExtResource("7_tvesa")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ar666"]
+atlas = ExtResource("7_tvesa")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iwqei"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dere2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xyk6s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i5a0c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ar666")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_36kw0")
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "SCORE: 9999"
+label_settings = SubResource("LabelSettings_w76kk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Breath" type="TextureProgressBar" parent="."]
+modulate = Color(1, 1, 1, 0.733333)
+layout_mode = 0
+offset_left = 879.0
+offset_top = 759.0
+offset_right = 919.0
+offset_bottom = 959.0
+max_value = 200.0
+value = 200.0
+rounded = true
+fill_mode = 3
+texture_under = ExtResource("4_hwoq8")
+texture_over = ExtResource("4_xjp7p")
+texture_progress = ExtResource("3_nqfhe")
+
+[node name="BigBubble" type="AnimatedSprite2D" parent="."]
+position = Vector2(891, 745)
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_5xhw2")
+animation = &"bubble_animation"
+frame_progress = 1.0
+
+[node name="BubbleParticles" type="AnimatedSprite2D" parent="."]
+position = Vector2(890, 734)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_iwqei")
+
+[node name="Buttons" type="Sprite2D" parent="."]
+position = Vector2(1180, 821)
+scale = Vector2(3.10938, 3.10938)
+texture = ExtResource("8_pgrcn")
+
+[node name="NoAir" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(890, 741)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("8_rye2h")

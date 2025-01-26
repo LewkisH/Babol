@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://cg0k2cdui8v57"]
+
+[ext_resource type="Script" path="res://scripts/cutscene_1.gd" id="1_l1uo0"]
+[ext_resource type="Texture2D" uid="uid://catap0bpgyksm" path="res://assets/textures/chat.png" id="2_bqf2t"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchor_right = 1.006
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = -1.0
+offset_right = 6.31995
+offset_bottom = -4.0
+script = ExtResource("1_l1uo0")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -6.0
+offset_top = 1.0
+offset_right = 34.0
+offset_bottom = 41.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 802.0
+offset_top = 788.0
+offset_right = 1219.0
+offset_bottom = 941.0
+texture = ExtResource("2_bqf2t")
+
+[node name="NameLabel" type="Label" parent="TextureRect"]
+layout_mode = 2
+offset_left = 16.0
+offset_top = -38.0
+offset_right = 98.0
+offset_bottom = 4.0
+theme_override_font_sizes/font_size = 30
+text = "name"
+
+[node name="TextLabel" type="Label" parent="TextureRect"]
+layout_mode = 2
+offset_left = 45.0
+offset_top = 48.0
+offset_right = 372.0
+offset_bottom = 105.0
+text = "LORELORELORELORELORELORELORELORELORELORELORELORE"
+autowrap_mode = 3

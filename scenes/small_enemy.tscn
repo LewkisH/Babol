@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmbeb4icp71di"]
+
+[ext_resource type="PackedScene" uid="uid://cm23pqetbflrq" path="res://scenes/enemy.tscn" id="1_e8eha"]
+
+[node name="DiverEnemy" instance=ExtResource("1_e8eha")]
+scale = Vector2(0.25, 0.25)
+speed = 400
+points = 200
+hp = 1

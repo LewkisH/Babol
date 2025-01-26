@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://ceuh25br64vvt"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_pl1ct"]
+[ext_resource type="Texture2D" uid="uid://cabhc0j0cxmnn" path="res://assets/textures/playerPlaceholder.png" id="2_l6sur"]
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+rotation = 1.5708
+collision_mask = 2
+motion_mode = 1
+script = ExtResource("1_pl1ct")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_l6sur")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+rotation = 1.5708
+polygon = PackedVector2Array(-4.99995, 13, -8.99998, 5.00003, -25, 5.00009, -28, 0.000102584, -27, -5.9999, -9.00002, -5.99997, -7.00005, -13, 3.99995, -14, 11.9999, -18, 21.9999, -19.0001, 15, -10.0001, 21, -8.00008, 35, -9.00013, 35, 8.99987, 21, 7.99992, 15, 10.9999, 21.0001, 20.9999, 5.00005, 14)
+
+[node name="Muzzle" type="Marker2D" parent="."]
+position = Vector2(0, -38)

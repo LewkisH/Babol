@@ -1,0 +1,95 @@
+[gd_scene load_steps=12 format=3 uid="uid://ceuh25br64vvt"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_pl1ct"]
+[ext_resource type="Texture2D" uid="uid://cintm2e43igv5" path="res://assets/textures/bob-bill.png" id="2_pb1ge"]
+[ext_resource type="AudioStream" uid="uid://c2albe56d1lp6" path="res://assets/audio/BubbleInflate.ogg" id="3_6f2dk"]
+[ext_resource type="AudioStream" uid="uid://dotsaoihowx22" path="res://assets/audio/OutOfBreath.ogg" id="4_kuv6h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpnoc"]
+atlas = ExtResource("2_pb1ge")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uchcl"]
+atlas = ExtResource("2_pb1ge")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1pnr"]
+atlas = ExtResource("2_pb1ge")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpapp"]
+atlas = ExtResource("2_pb1ge")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mvmp"]
+atlas = ExtResource("2_pb1ge")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xdpn"]
+atlas = ExtResource("2_pb1ge")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eb1gj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpnoc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uchcl")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1pnr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kpapp")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mvmp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xdpn")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+rotation = 1.5708
+collision_mask = 2
+motion_mode = 1
+script = ExtResource("1_pl1ct")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_eb1gj")
+animation = &"idle"
+frame = 1
+frame_progress = 0.0122003
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+rotation = 1.5708
+polygon = PackedVector2Array(-4.99991, 12, -5.99996, 6.00004, -7.99996, 6.00006, -8, 5.79198e-05, -8.00004, -5.99994, -6.00004, -5.99996, -6.00009, -12, 3.99991, -12, 5.9999, -14, 10.9999, -15.0001, 16.9999, -15.0001, 16.9999, -10.0001, 21, -8.00008, 31.9999, -8.00023, 32.0001, 7.99977, 21, 7.99992, 17.0001, 7.99988, 17.0001, 14.9999, 10.0001, 14.9999, 8.00009, 12.9999)
+
+[node name="Muzzle" type="Marker2D" parent="."]
+position = Vector2(0, -38)
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="Inflate" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("3_6f2dk")
+volume_db = 14.0
+
+[node name="Empty" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("4_kuv6h")
