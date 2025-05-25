@@ -23,10 +23,16 @@ func _physics_process(delta):
 	rotation = direction.angle() + deg_to_rad(90.0)
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
-	queue_free()
+	call_deferred("queue_free")
 
 func _on_area_entered(area):
 	print("REMAINING BUBBLE DAM: ", damage)
+	if area is Enemy || area is Boss:
+		# Defer the entire collision handling
+		call_deferred("_handle_collision", area)
+
+# New method to handle collisions after physics step
+func _handle_collision(area):
 	if area is Enemy || area is Boss:
 		if area.hp < damage:
 			damage -= area.hp

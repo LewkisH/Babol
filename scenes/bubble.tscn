@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://72p6hkipsrnw"]
 
-[ext_resource type="Script" path="res://scripts/bubble.gd" id="1_tsn0o"]
+[ext_resource type="Script" uid="uid://c0v3qi8r6k5qb" path="res://scripts/bubble.gd" id="1_tsn0o"]
 [ext_resource type="Texture2D" uid="uid://c7lkek58t1efi" path="res://assets/textures/basicBubble.png" id="2_t80y8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nnupo"]

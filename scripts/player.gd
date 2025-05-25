@@ -40,7 +40,6 @@ func _process(_delta):
 		
 		if !shoot_cd:
 			inflate_sound.stop()
-			print("unflating")
 			shoot_cd = true
 			shoot()
 			await get_tree().create_timer(rate_of_fire).timeout
@@ -50,7 +49,6 @@ func _process(_delta):
 		if !bubble_cd && breath < Globals.MAX_BREATH:
 			bubble_cd = true
 			while Input.is_action_pressed("inhale") && breath < Globals.MAX_BREATH:
-				print("breath: ", breath)
 				inhale()
 				await get_tree().create_timer(rate_of_blow).timeout
 			inhale_sound.stop()
@@ -83,7 +81,6 @@ func shoot():
 func blow():
 	if !inflate_sound.is_playing():
 		inflate_sound.play()
-		print("inflating")
 
 	bubble_blow.emit()
 

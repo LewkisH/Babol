@@ -14,7 +14,6 @@ var max_hp = 1
 
 func _ready():
 	max_hp = hp
-	print(max_hp, " MAX HP")
 
 func _physics_process(delta):
 	time += delta
@@ -23,7 +22,7 @@ func _physics_process(delta):
 	_animated_sprite.play("fly")
 
 func die():
-	queue_free()	
+	call_deferred("queue_free")
 
 func _on_body_entered(body):
 	if body is Player:
@@ -34,11 +33,9 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()
 
 func take_damage(amount, disappear, bubble):
-	print("taking dam", amount, hp)
 	hp -= amount
 	if hp <= 0:
 		killed.emit(max_hp* 100, global_position)
-		print("KILLED, got pints:", max_hp* 100)
 		if !disappear:
 			# attach mosquito sprite to bubble
 			var enemy_sprite = (self.get_child(0).duplicate())

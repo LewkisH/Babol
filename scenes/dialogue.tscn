@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cg0k2cdui8v57"]
 
-[ext_resource type="Script" path="res://scripts/cutscene_1.gd" id="1_l1uo0"]
-[ext_resource type="Texture2D" uid="uid://catap0bpgyksm" path="res://assets/textures/chat.png" id="2_bqf2t"]
+[ext_resource type="Script" uid="uid://b0mk5yyqdbn3l" path="res://scripts/chapters/chapter 1/cutscene_1.gd" id="1_3n4vj"]
+[ext_resource type="Texture2D" uid="uid://catap0bpgyksm" path="res://assets/textures/chat.png" id="2_bfpow"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -11,7 +11,7 @@ offset_left = 6.0
 offset_top = -1.0
 offset_right = 6.31995
 offset_bottom = -4.0
-script = ExtResource("1_l1uo0")
+script = ExtResource("1_3n4vj")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
@@ -26,7 +26,7 @@ offset_left = 802.0
 offset_top = 788.0
 offset_right = 1219.0
 offset_bottom = 941.0
-texture = ExtResource("2_bqf2t")
+texture = ExtResource("2_bfpow")
 
 [node name="NameLabel" type="Label" parent="TextureRect"]
 layout_mode = 2

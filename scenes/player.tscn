@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://ceuh25br64vvt"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_pl1ct"]
+[ext_resource type="Script" uid="uid://dr51iqimh8fhk" path="res://scripts/player.gd" id="1_pl1ct"]
 [ext_resource type="Texture2D" uid="uid://cintm2e43igv5" path="res://assets/textures/bob-bill.png" id="2_pb1ge"]
 [ext_resource type="AudioStream" uid="uid://c2albe56d1lp6" path="res://assets/audio/BubbleInflate.ogg" id="3_6f2dk"]
 [ext_resource type="AudioStream" uid="uid://dotsaoihowx22" path="res://assets/audio/OutOfBreath.ogg" id="4_kuv6h"]

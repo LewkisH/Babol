@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://cm23pqetbflrq"]
 
-[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_tetyj"]
+[ext_resource type="Script" uid="uid://bn6vkrfvkf8po" path="res://scripts/enemy.gd" id="1_tetyj"]
 [ext_resource type="Texture2D" uid="uid://c3j6pj77c7jnk" path="res://assets/textures/mosquitoSheet.png" id="2_kgwvg"]
 [ext_resource type="AudioStream" uid="uid://fli1ljo6rf6x" path="res://assets/audio/MosquitoBuzz.ogg" id="3_nrcnq"]
 

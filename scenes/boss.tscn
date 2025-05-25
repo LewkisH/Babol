@@ -1,9 +1,13 @@
-[gd_scene load_steps=21 format=3 uid="uid://cc8vj546iycrv"]
+[gd_scene load_steps=25 format=3 uid="uid://cc8vj546iycrv"]
 
-[ext_resource type="Script" path="res://scripts/boss.gd" id="1_vh0yr"]
+[ext_resource type="Curve2D" path="res://BossPaths/MosquitoQueen/intro.tres" id="1_gqd3i"]
+[ext_resource type="Curve2D" uid="uid://bd8klxdqb4y4g" path="res://BossPaths/MosquitoQueen/attack.tres" id="1_mautr"]
+[ext_resource type="Script" uid="uid://ckctqibnj4i63" path="res://scripts/boss.gd" id="1_vh0yr"]
 [ext_resource type="Texture2D" uid="uid://dit8doaqe2wo8" path="res://assets/textures/angryBoss.png" id="2_m2gw3"]
 [ext_resource type="Texture2D" uid="uid://c3vbmp5u45f4h" path="res://assets/textures/boss-Sheet.png" id="2_okdi0"]
+[ext_resource type="Script" uid="uid://da3natjcl2f46" path="res://scenes/path_follow_2d.gd" id="2_vn2fc"]
 [ext_resource type="Texture2D" uid="uid://doucfpebbc6wc" path="res://assets/textures/bossHealth3.png" id="4_6ce1c"]
+[ext_resource type="Curve2D" path="res://BossPaths/MosquitoQueen/dodge.tres" id="4_mautr"]
 [ext_resource type="Texture2D" uid="uid://bktjenfcvgr01" path="res://assets/textures/bossHealth.png" id="5_6u2ea"]
 [ext_resource type="Texture2D" uid="uid://ddjm2vune46c4" path="res://assets/textures/bossHealth2.png" id="6_spl8w"]
 [ext_resource type="AudioStream" uid="uid://ci5kfdohpqs1o" path="res://assets/audio/BossDeath.ogg" id="7_kt8k2"]
@@ -75,25 +79,39 @@ stream_1/stream = ExtResource("10_a8o2p")
 stream_2/stream = ExtResource("11_p85ey")
 stream_3/stream = ExtResource("12_2otm6")
 
-[node name="Boss" type="Area2D"]
+[node name="BossRoot" type="Node2D"]
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(-36, -10)
+curve = ExtResource("1_mautr")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(652, 263)
+rotates = false
+script = ExtResource("2_vn2fc")
+
+[node name="Boss" type="Area2D" parent="Path2D/PathFollow2D"]
 scale = Vector2(7, 7)
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_vh0yr")
+intro_curve = ExtResource("1_gqd3i")
+dodge_curve = ExtResource("4_mautr")
+attack_curve = ExtResource("1_mautr")
 
-[node name="SpriteSheet" type="AnimatedSprite2D" parent="."]
+[node name="SpriteSheet" type="AnimatedSprite2D" parent="Path2D/PathFollow2D/Boss"]
 sprite_frames = SubResource("SpriteFrames_lvkg3")
 animation = &"fly"
 
-[node name="Collision" type="CollisionPolygon2D" parent="."]
+[node name="Collision" type="CollisionPolygon2D" parent="Path2D/PathFollow2D/Boss"]
 scale = Vector2(0.995275, 1.00934)
 polygon = PackedVector2Array(11.4828, -17.2673, 20.5256, -11.0397, 24.8316, 2.26456, 25.1187, 9.9075, 25.8364, 16.9842, 24.5445, 19.5319, 19.8079, 21.7964, 10.7652, 20.3811, -0.287071, 23.6364, -10.9087, 20.2395, -19.2337, 20.8057, -26.1234, 18.9657, -25.9799, 3.67991, -16.6501, -8.20904, -8.75566, -9.90746, -1.14828, -15.2858)
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="Path2D/PathFollow2D/Boss"]
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Node2D" type="Node2D" parent="Path2D/PathFollow2D/Boss"]
 
-[node name="ProgressBar" type="TextureProgressBar" parent="Node2D"]
+[node name="ProgressBar" type="TextureProgressBar" parent="Path2D/PathFollow2D/Boss/Node2D"]
 offset_left = -39.5714
 offset_top = 31.1429
 offset_right = 260.429
@@ -105,24 +123,24 @@ texture_over = ExtResource("5_6u2ea")
 texture_progress = ExtResource("6_spl8w")
 tint_under = Color(1, 1, 1, 0.501961)
 
-[node name="SFX" type="Node" parent="."]
+[node name="SFX" type="Node" parent="Path2D/PathFollow2D/Boss"]
 
-[node name="Death" type="AudioStreamPlayer" parent="SFX"]
+[node name="Death" type="AudioStreamPlayer" parent="Path2D/PathFollow2D/Boss/SFX"]
 stream = ExtResource("7_kt8k2")
 volume_db = -9.109
 pitch_scale = 0.71
 
-[node name="Buzzing" type="AudioStreamPlayer" parent="SFX"]
+[node name="Buzzing" type="AudioStreamPlayer" parent="Path2D/PathFollow2D/Boss/SFX"]
 stream = ExtResource("8_lrbgy")
 volume_db = -10.0
 pitch_scale = 0.8
 autoplay = true
 parameters/looping = true
 
-[node name="Hurt" type="AudioStreamPlayer" parent="SFX"]
+[node name="Hurt" type="AudioStreamPlayer" parent="Path2D/PathFollow2D/Boss/SFX"]
 stream = SubResource("AudioStreamRandomizer_y8l30")
 volume_db = 0.759
 pitch_scale = 1.7
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Path2D/PathFollow2D/Boss" to="Path2D/PathFollow2D/Boss" method="_on_body_entered"]
+[connection signal="timeout" from="Path2D/PathFollow2D/Boss/Timer" to="Path2D/PathFollow2D/Boss" method="_on_timer_timeout"]

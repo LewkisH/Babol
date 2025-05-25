@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c6uejmh8c7koe"]
 
-[ext_resource type="Script" path="res://scripts/game_over_screen.gd" id="1_g2wiu"]
+[ext_resource type="Script" uid="uid://dulgkg4qub1rd" path="res://scripts/game_over_screen.gd" id="1_g2wiu"]
 [ext_resource type="FontFile" uid="uid://bhr2rhqo8dmnd" path="res://assets/fonts/Kenney Future.ttf" id="1_npbix"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ya48v"]

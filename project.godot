@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="Babol"
-run/main_scene="res://scenes/cutscene_1.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
+run/main_scene="res://scenes/chapters/chapter 1/cutscenes/start_cutscene.tscn"
+config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
