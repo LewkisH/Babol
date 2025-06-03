@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://brt2y3qlewyjn"]
+
+[ext_resource type="PackedScene" uid="uid://cg0k2cdui8v57" path="res://scripts/chapters/chapter 1/dialogue.tscn" id="1_dhv0i"]
+[ext_resource type="PackedScene" uid="uid://b050xx2rav7b2" path="res://scenes/chapters/chapter 1/level1.tscn" id="2_r5tpr"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Control" parent="." instance=ExtResource("1_dhv0i")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1284.0
+offset_bottom = 964.0
+scene_to = ExtResource("2_r5tpr")

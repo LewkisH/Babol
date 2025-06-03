@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dk4p5p4lkkgv6"]
 
-[ext_resource type="PackedScene" uid="uid://cg0k2cdui8v57" path="res://scenes/dialogue.tscn" id="1_jrs52"]
+[ext_resource type="PackedScene" uid="uid://cg0k2cdui8v57" path="res://scripts/chapters/chapter 1/dialogue.tscn" id="1_jrs52"]
 [ext_resource type="Script" uid="uid://dj23lwvp6qq2u" path="res://scripts/cutscene_end.gd" id="2_yq2xj"]
 
 [node name="Node2D" type="Node2D"]

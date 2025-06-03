@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cuncsxr06ek7d"]
+
+[ext_resource type="PackedScene" uid="uid://cg0k2cdui8v57" path="res://scripts/chapters/chapter 1/dialogue.tscn" id="1_a51jx"]
+[ext_resource type="Script" uid="uid://bx8cmeghq58qs" path="res://scripts/chapters/chapter 1/placeholdercutscene.gd" id="2_fl7us"]
+[ext_resource type="PackedScene" uid="uid://0bocnjtlhomo" path="res://scenes/chapters/chapter 1/level2.tscn" id="3_et5fo"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Control" parent="." instance=ExtResource("1_a51jx")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1284.0
+offset_bottom = 964.0
+script = ExtResource("2_fl7us")
+scene_to = ExtResource("3_et5fo")
